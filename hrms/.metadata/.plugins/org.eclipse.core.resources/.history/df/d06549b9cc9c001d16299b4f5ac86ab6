@@ -1,0 +1,20 @@
+package kodlamaio.hrms.api.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlamaio.hrms.business.abstracts.JobTitleService;
+
+@RestController
+
+public class JobTitleController {
+	
+	private JobTitleService jobTitleService;
+
+	public JobTitleController(JobTitleService jobTitleService) {
+		super();
+		this.jobTitleService = jobTitleService;
+	}
+	
+	
+
+}

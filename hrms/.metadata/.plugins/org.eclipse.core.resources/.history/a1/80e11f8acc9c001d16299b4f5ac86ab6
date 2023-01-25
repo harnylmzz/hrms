@@ -1,0 +1,16 @@
+package kodlamaio.hrms.api.controller;
+
+import kodlamaio.hrms.business.abstracts.JobTitleService;
+
+public class JobTitleController {
+	
+	private JobTitleService jobTitleService;
+
+	public JobTitleController(JobTitleService jobTitleService) {
+		super();
+		this.jobTitleService = jobTitleService;
+	}
+	
+	
+
+}
