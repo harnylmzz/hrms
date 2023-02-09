@@ -1,0 +1,5 @@
+package kodlamaio.hrms.mailValidation.abstracts;
+
+public interface VerificationService {
+
+}

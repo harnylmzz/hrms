@@ -1,0 +1,9 @@
+package kodlamaio.hrms.entities.concretes;
+
+public abstract class User {
+
+	
+	private String email;
+	
+	private String password;
+}

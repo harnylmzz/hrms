@@ -1,0 +1,25 @@
+package kodlamaio.hrms.business.concretes;
+
+import java.util.List;
+
+import kodlamaio.hrms.business.abstracts.EmployerService;
+import kodlamaio.hrms.dataAccess.EmployerDao;
+import kodlamaio.hrms.entities.concretes.Employer;
+
+public class EmployerManager implements EmployerService {
+
+	private EmployerDao employerDao;
+	
+	public EmployerManager(EmployerDao employerDao) {
+		super();
+		this.employerDao = employerDao;
+	}
+
+	@Override
+	public List<Employer> getAll() {
+		
+		return this.employerDao.findAll();
+	}
+
+	
+}

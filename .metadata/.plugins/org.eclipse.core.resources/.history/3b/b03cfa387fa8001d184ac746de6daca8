@@ -1,0 +1,8 @@
+package kodlamaio.hrms.mailValidation.abstracts;
+
+import kodlamaio.hrms.core.utilities.result.Result;
+
+public interface VerificationService {
+
+	Result sendMail(String message, String email);
+}

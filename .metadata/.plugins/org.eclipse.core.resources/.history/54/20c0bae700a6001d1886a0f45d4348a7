@@ -1,0 +1,27 @@
+package kodlamaio.hrms.core;
+
+public class Result {
+
+	private boolean success;
+	private boolean message;
+
+	public Result(boolean success) {
+		super();
+		this.success = success;
+	}
+
+	public Result(boolean success, boolean message) {
+		super();
+		this.success = success;
+		this.message = message;
+	}
+
+	public boolean isSuccess() {
+		return success;
+	}
+
+	public boolean isMessage() {
+		return message;
+	}
+
+}

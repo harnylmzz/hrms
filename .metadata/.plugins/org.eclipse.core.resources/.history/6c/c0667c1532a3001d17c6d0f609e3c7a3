@@ -1,0 +1,27 @@
+package kodlamaio.hrms.api.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.entities.concretes.Candidate;
+
+public class CandidatesController {
+	
+	private CandidateService candidateService;
+
+	@Autowired
+	public CandidatesController(CandidateService candidateService) {
+		super();
+		this.candidateService = candidateService;
+	}
+
+	@GetMapping("/getall")
+	List<Candidate> getAll() {
+		return candidateService.getAll();
+	}
+	
+	
+}

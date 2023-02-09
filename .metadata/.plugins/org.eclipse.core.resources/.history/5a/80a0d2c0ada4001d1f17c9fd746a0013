@@ -1,0 +1,13 @@
+package kodlamaio.hrms.api.controller;
+
+import kodlamaio.hrms.business.abstracts.JobPositionService;
+
+public class JobPozitionsController {
+
+	private JobPositionService jobPositionService;
+
+	public JobPozitionsController(JobPositionService jobPositionService) {
+		super();
+		this.jobPositionService = jobPositionService;
+	}
+}

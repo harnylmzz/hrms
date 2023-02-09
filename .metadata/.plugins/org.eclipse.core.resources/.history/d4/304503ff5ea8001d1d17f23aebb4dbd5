@@ -1,0 +1,18 @@
+package kodlamaio.hrms.mailValidation.concretes;
+
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.core.utilities.result.Result;
+import kodlamaio.hrms.core.utilities.result.SuccessResult;
+import kodlamaio.hrms.mailValidation.abstracts.VerificationService;
+
+@Service
+public class VerificationManager implements VerificationService {
+
+	@Override
+	public Result sendMail(String message, String email) {
+		
+		return new SuccessResult("Doğrulama linki gönderildi. Lütfen mail kutunuzu kontrol ediniz." + email);
+	}
+
+}

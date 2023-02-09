@@ -1,0 +1,15 @@
+package kodlamaio.hrms.core.verifications.concretes;
+
+import kodlamaio.hrms.core.utilities.result.Result;
+import kodlamaio.hrms.core.utilities.result.SuccessResult;
+import kodlamaio.hrms.core.verifications.abstracts.EmailVerifyService;
+
+public class EmailVerifyManager implements EmailVerifyService {
+
+	@Override
+	public Result isVerify(String email, String message) {
+		
+		return new SuccessResult("Doğrulama bağlantısı gönedirldi. Lütfen mail kutunuzu kontrol ediniz." + email);
+	}
+
+}
