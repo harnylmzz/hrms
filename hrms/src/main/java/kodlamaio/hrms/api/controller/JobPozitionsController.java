@@ -33,7 +33,6 @@ public class JobPozitionsController {
 	}
 	@PostMapping("/add")
 	Result add(@RequestBody JobPosition jobPosition) {
-
 		return this.jobPositionService.add(jobPosition);
 	}
 
