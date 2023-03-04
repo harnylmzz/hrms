@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
@@ -27,7 +28,7 @@ public class CandidatesController {
 	}
 
 	@GetMapping("/getall")
-		DataResult<List<Candidate>> getAll() {
+	public	DataResult<List<Candidate>> getAll() {
 		return this.candidateService.getAll();
 	}
 	
@@ -36,5 +37,14 @@ public class CandidatesController {
 		return this.candidateService.add(candidate);
 	}
 	
+	@GetMapping("/findByFirstName")
+	public DataResult<List<Candidate>> findByFirstName(@RequestParam String firstName) {
+		return this.candidateService.findByFirstName(firstName);
+	}
+	
+	@GetMapping("/findByLastName")
+	public DataResult<List<Candidate>> findByLastName(@RequestParam String lastName) {
+		return this.candidateService.findByLastName(lastName);
+	}
 	
 }

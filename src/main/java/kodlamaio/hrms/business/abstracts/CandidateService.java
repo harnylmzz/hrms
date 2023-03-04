@@ -12,5 +12,7 @@ public interface CandidateService {
 	
 	Result add(Candidate candidate);
 	
+	DataResult<List<Candidate>> findByFirstName(String firstName);
 	
+	DataResult<List<Candidate>> findByLastName(String lastName);
 }
