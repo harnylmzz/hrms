@@ -17,13 +17,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 public class User {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	private String email;
-	
+
 	private String password;
 }

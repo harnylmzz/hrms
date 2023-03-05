@@ -3,16 +3,22 @@ package kodlamaio.hrms.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.core.utilities.result.DataResult;
 import kodlamaio.hrms.core.utilities.result.Result;
+import kodlamaio.hrms.dtos.requests.CreateCandidateRequest;
+import kodlamaio.hrms.dtos.requests.DeleteCandidateRequest;
+import kodlamaio.hrms.dtos.responses.GetAllCandidateResponses;
 import kodlamaio.hrms.entities.concretes.Candidate;
 
 @RestController
@@ -28,13 +34,19 @@ public class CandidatesController {
 	}
 
 	@GetMapping("/getall")
-	public	DataResult<List<Candidate>> getAll() {
+	public	DataResult<List<GetAllCandidateResponses>> getAll() {
 		return this.candidateService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidate candidate) {
-		return this.candidateService.add(candidate);
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Result add(@RequestBody CreateCandidateRequest createCandidateRequest) {
+		return this.candidateService.add(createCandidateRequest);
+	}
+
+	@DeleteMapping("/delete")
+	public Result delete (DeleteCandidateRequest deleteCandidateRequest) {
+		return this.candidateService.delete(deleteCandidateRequest);
 	}
 	
 	@GetMapping("/findByFirstName")
