@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ import kodlamaio.hrms.core.utilities.result.DataResult;
 import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.dtos.requests.CreateJobAdvertisementRequest;
 import kodlamaio.hrms.dtos.requests.DeleteJobAdvertisementRequest;
+import kodlamaio.hrms.dtos.requests.UpdateJobAdvertisementRequest;
 import kodlamaio.hrms.dtos.responses.GetAllJobAdvertisementResponses;
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
@@ -48,6 +50,11 @@ public class JobAdvertisementsController {
 	@DeleteMapping("/delete")
 	public Result delete(DeleteJobAdvertisementRequest deleteJobAdvertisementRequest) {
 		return this.jobAdvertisementService.delete(deleteJobAdvertisementRequest);
+	}
+
+	@PutMapping("/update")
+	public Result update(@RequestBody UpdateJobAdvertisementRequest updateJobAdvertisementRequest) {
+		return this.jobAdvertisementService.update(updateJobAdvertisementRequest);
 	}
 
 	@GetMapping("/findByIsActiveTrue")
