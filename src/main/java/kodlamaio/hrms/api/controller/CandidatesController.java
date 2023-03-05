@@ -24,7 +24,7 @@ import kodlamaio.hrms.entities.concretes.Candidate;
 @RestController
 @RequestMapping("/api/candidates")
 public class CandidatesController {
-	
+
 	private CandidateService candidateService;
 
 	@Autowired
@@ -34,10 +34,10 @@ public class CandidatesController {
 	}
 
 	@GetMapping("/getall")
-	public	DataResult<List<GetAllCandidateResponses>> getAll() {
+	public DataResult<List<GetAllCandidateResponses>> getAll() {
 		return this.candidateService.getAll();
 	}
-	
+
 	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Result add(@RequestBody CreateCandidateRequest createCandidateRequest) {
@@ -45,18 +45,18 @@ public class CandidatesController {
 	}
 
 	@DeleteMapping("/delete")
-	public Result delete (DeleteCandidateRequest deleteCandidateRequest) {
+	public Result delete(DeleteCandidateRequest deleteCandidateRequest) {
 		return this.candidateService.delete(deleteCandidateRequest);
 	}
-	
+
 	@GetMapping("/findByFirstName")
 	public DataResult<List<Candidate>> findByFirstName(@RequestParam String firstName) {
 		return this.candidateService.findByFirstName(firstName);
 	}
-	
+
 	@GetMapping("/findByLastName")
 	public DataResult<List<Candidate>> findByLastName(@RequestParam String lastName) {
 		return this.candidateService.findByLastName(lastName);
 	}
-	
+
 }
