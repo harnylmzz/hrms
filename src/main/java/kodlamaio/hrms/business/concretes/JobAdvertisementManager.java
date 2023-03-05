@@ -12,6 +12,7 @@ import kodlamaio.hrms.core.utilities.result.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.result.SuccessResult;
 import kodlamaio.hrms.dataAccess.JobAdvertisementDao;
 import kodlamaio.hrms.dtos.requests.CreateJobAdvertisementRequest;
+import kodlamaio.hrms.dtos.requests.DeleteJobAdvertisementRequest;
 import kodlamaio.hrms.dtos.responses.GetAllJobAdvertisementResponses;
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 import lombok.AllArgsConstructor;
@@ -43,7 +44,20 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 				JobAdvertisement.class);
 		this.jobAdvertisementDao.save(jobAdvertisement);
 
-		return new SuccessResult("İş ilanı eklendi");
+		return new SuccessResult("İş ilanı eklendi!");
+	}
+
+	@Override
+	public Result delete(DeleteJobAdvertisementRequest deleteJobAdvertisementRequest) {
+		JobAdvertisement jobAdvertisement = this.modelMapperService.forRequest().map(deleteJobAdvertisementRequest, JobAdvertisement.class);
+		this.jobAdvertisementDao.delete(jobAdvertisement);
+		return new SuccessResult("İş ilanı sistemden kaldırıldı!");
+	}
+
+	@Override
+	public Result update() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'update'");
 	}
 
 	@Override
